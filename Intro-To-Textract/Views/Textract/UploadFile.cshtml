@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "UploadFile";
+}
+<style>
+    .divtxtarea {
+        border: #ddd solid 1px;
+        height: 100px;
+        width: 100%;
+        padding: 5px;
+    }
+</style>
+<h1>Upload Your File</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" /> <br /><br /><br />
+    <button class="btn btn-primary" type="submit">
+        <span aria-hidden="true">Extract Text</span>
+    </button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div style="margin-top:20px" class="border-1 alert-info bg-light">
+        <label class="fw-bold alert-success">Extract Result:</label>
+        <br /><br />
+        <textarea id="result" name="result" rows="7" cols="170">
+            @ViewBag.Message
+            </textarea>
+        <h2>Resume Content</h2>
+        <div>@Html.Raw(@ViewBag.Message)</div>
+    </div>
+}
